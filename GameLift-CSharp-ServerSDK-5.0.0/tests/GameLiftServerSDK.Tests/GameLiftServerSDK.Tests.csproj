@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{33AD7A71-3F53-41A8-8F57-49868DDCCEBE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>GameLiftTest</RootNamespace>
+    <AssemblyName>GameLiftTest</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Moq" Version="4.16.1" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AwsStringOutcomeTest.cs" />
+    <Compile Include="Common\GameLiftErrorsTest.cs" />
+    <Compile Include="Common\GenericOutcomeTest.cs" />
+    <Compile Include="Common\DescribePlayerSessionsOutcomeTest.cs" />
+    <Compile Include="Server\GameLiftServerAPITest.cs" /> 
+    <Compile Include="Server\Model\Request\StartMatchBackfillRequestTest.cs" />
+    <Compile Include="Server\Model\Response\DescribePlayerSessionsResponseTest.cs" />
+    <Compile Include="Server\Model\MatchmakerDataTest.cs" />
+    <Compile Include="Server\Model\UpdateReasonTest.cs" />
+    <Compile Include="Server\NetworkTest.cs" />
+    <Compile Include="Server\ServerStateTest.cs" />
+    <Compile Include="Server\Model\PlayerSessionCreationPolicyTest.cs" />
+    <Compile Include="Server\GameLiftWebSocketRequestHandlerTest.cs" />
+    <Compile Include="Server\LogParametersTest.cs" />
+    <Compile Include="Server\ProcessParametersTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\GameLiftServerSDK\GameLiftServerSDK.csproj">
+      <Project>{B6A23723-FA7F-46DF-8837-1FE06E1AABD9}</Project>
+      <Name>GameLiftServerSDK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Server\Model\Request\" />
+    <Folder Include="Server\Model\Response\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
