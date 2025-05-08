@@ -1,0 +1,1 @@
+- Adds support for .NET 8.0 as a target framework. The plugin now supports the use of .NET Framework 4.6.2, .NET 6.0, and .NET 8.0.
