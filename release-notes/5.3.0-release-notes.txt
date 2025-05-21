@@ -1,0 +1,5 @@
+- Adds or improves client-side validation in all server SDK actions.
+- Adds more specific and improved error responses to API errors.
+- Adds default logic to the onProcessTerminate() callback that terminates the game server process when this callback is invoked.
+- Adds idempotency token support to allow InitSDK() retries to succeed.
+- Includes autoBackfillMode in the data passed in the OnUpdateGameSession() callback.
