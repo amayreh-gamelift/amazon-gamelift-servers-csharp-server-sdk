@@ -1,0 +1,4 @@
+- Added support for GameLift container fleets.
+- Added the option to initialize the SDK using AWS Region and AWS Credentials, providing an alternative to AuthToken based authentication.
+- Fixed WebSocket disconnect message to use real status code and reason.
+- Update the installation instructions to use the new registry URL for Unity NuGet in Package Manager

@@ -1,0 +1,89 @@
+﻿/*
+* All or portions of this file Copyright (c) Amazon.com, Inc. or its affiliates or
+* its licensors.
+*
+* For complete copyright and license terms please see the LICENSE at the root of this
+* distribution (the "License"). All use of this software is governed by the License,
+* or, if provided, by the license below or the license accompanying this file. Do not
+* remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+*
+*/
+
+using Aws.GameLift.Server.Model;
+using NUnit.Framework;
+
+namespace Aws.GameLift.Tests.Server.Model
+{
+    [TestFixture]
+    public class PlayerSessionCreationPolicyTest
+    {
+        [Test]
+        public void AcceptAllNameIsAlwaysMappedToPlayerSessionPolicy()
+        {
+            // Given
+            // When
+            PlayerSessionCreationPolicy policy = PlayerSessionCreationPolicyMapper.GetPlayerSessionCreationPolicyForName("ACCEPT_ALL");
+
+            // Then
+            Assert.AreEqual(PlayerSessionCreationPolicy.ACCEPT_ALL, policy);
+        }
+
+        [Test]
+        public void DenyAllNameIsAlwaysMappedToPlayerSessionPolicy()
+        {
+            // Given
+            // When
+            PlayerSessionCreationPolicy policy = PlayerSessionCreationPolicyMapper.GetPlayerSessionCreationPolicyForName("DENY_ALL");
+
+            // Then
+            Assert.AreEqual(PlayerSessionCreationPolicy.DENY_ALL, policy);
+        }
+
+        [Test]
+        public void NotSetNameIsAlwaysMappedToPlayerSessionPolicy()
+        {
+            // Given
+            // When
+            PlayerSessionCreationPolicy policy = PlayerSessionCreationPolicyMapper.GetPlayerSessionCreationPolicyForName(string.Empty);
+
+            // Then
+            Assert.AreEqual(PlayerSessionCreationPolicy.NOT_SET, policy);
+        }
+
+        [Test]
+        public void AcceptAllPolicyIsAlwaysMappedToName()
+        {
+            // Given
+            // When
+            string name = PlayerSessionCreationPolicyMapper.GetNameForPlayerSessionCreationPolicy(PlayerSessionCreationPolicy.ACCEPT_ALL);
+
+            // Then
+            Assert.AreEqual("ACCEPT_ALL", name);
+        }
+
+        [Test]
+        public void DenyAllPolicyIsAlwaysMappedToName()
+        {
+            // Given
+            // When
+            string name =
+                PlayerSessionCreationPolicyMapper.GetNameForPlayerSessionCreationPolicy(PlayerSessionCreationPolicy.DENY_ALL);
+
+            // Then
+            Assert.AreEqual("DENY_ALL", name);
+        }
+
+        [Test]
+        public void NotSetPolicyIsAlwaysMappedToName()
+        {
+            // Given
+            // When
+            string name =
+                PlayerSessionCreationPolicyMapper.GetNameForPlayerSessionCreationPolicy(PlayerSessionCreationPolicy.NOT_SET);
+
+            // Then
+            Assert.AreEqual("NOT_SET", name);
+        }
+    }
+}
